@@ -1,6 +1,6 @@
 # :racehorse: bashfy
 
-A collection of Bash scripts designed to streamline local setups
+A collection of Bash scripts designed to streamline local setups on Linux
 
 ## wpsetup.sh
 
