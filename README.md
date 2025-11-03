@@ -8,7 +8,4 @@ This automation simplifies repetitive WordPress setups by downloading the latest
 
 ### :hammer: Next Steps
 
-- Clear the console between each step for better readability
-- Remove default WordPress themes after installation
-- Automatically generate and configure wp-config.php
 - Ensure the project name is always formatted in lowercase
