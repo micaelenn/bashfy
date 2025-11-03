@@ -5,6 +5,8 @@ read -p "Enter the website name (ex: amazingproject): " websitename
 read -p "Enter the GitHub URL: " githuburl
 read -p "Enter the MySQL root username : " mysql_user
 
+clear
+
 ## WORDPRESS CONFIGS
 cd /var/www/ || exit
 
@@ -17,12 +19,26 @@ fi
 
 cd "$websitename"
 
+clear
+
 # download and extract latest WordPress
+echo "Downloading latest WordPress version"
 wget https://wordpress.org/latest.tar.gz -O /tmp/latest.tar.gz
 tar -xzf /tmp/latest.tar.gz -C /tmp/
 rm /tmp/latest.tar.gz
-rsync -av /tmp/wordpress/ . --exclude=wp-config.php
+rsync -av /tmp/wordpress/ .
+rm -rf wp-content/themes/twenty*
+
+if [ ! -f wp-config.php ]; then
+  cp wp-config-sample.php wp-config.php
+fi
+
+sed -i "s/database_name_here/${websitename}/" wp-config.php
+
+# clean up temporary files
 rm -rf /tmp/wordpress
+
+clear
 
 ## MYSQL CONFIGS
 echo "Setting up MySQL database"
@@ -42,6 +58,8 @@ elif [ -f "$sql_file" ]; then
 else
   echo "No sql file found."
 fi
+
+clear
 
 ## APACHE CONFIGS
 echo "Creating Apache config for $websitename..."
@@ -70,4 +88,6 @@ EOF
 # enable site and reload Apache
 sudo a2ensite "${websitename}.conf"
 sudo systemctl reload apache2
-echo "website available on http://${websitename}.local"
+
+clear
+echo "Done! Your website is available on http://${websitename}.local"
