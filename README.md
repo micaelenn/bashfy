@@ -4,7 +4,7 @@ A collection of Bash scripts designed to streamline local setups on Linux
 
 ## wpsetup.sh
 
-This automation simplifies repetitive WordPress setups by downloading the latest WordPress version, setting up virtual hosts on Apache, and creating a MySQL database with minimal manual input. It is necessary to create a ``databases`` directory and add the SQL file matching the website name to create and import the database automatically.
+This automation streamlines repetitive WordPress setup tasks by downloading the latest WordPress version, configuring Apache virtual hosts, and creating a MySQL database with minimal manual input. To enable automatic database creation and import, you must create a ``databases`` directory and add an SQL file named after the website.
 
 ### :hammer: Next Steps
 
