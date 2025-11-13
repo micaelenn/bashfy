@@ -9,3 +9,4 @@ This automation simplifies repetitive WordPress setups by downloading the latest
 ### :hammer: Next Steps
 
 - Ensure the project name is always formatted in lowercase
+- Automatically generate and configure .htaccess
